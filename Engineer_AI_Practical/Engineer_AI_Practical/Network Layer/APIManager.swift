@@ -42,31 +42,24 @@ class APIManager {
                 if let response = response.result.value as? [String:Any] {
                     let resp = BaseResponse(parameter: response)
                     success(resp)
-                }
-                else {
+                } else {
                     let error = WebError.parseFail
                     failure(error)
                 }
             case .failure(let error):
                 if error._code == NSURLErrorTimedOut {
                     failure(.timeout)
-                }
-                else if error._code == NSURLErrorCannotConnectToHost {
+                } else if error._code == NSURLErrorCannotConnectToHost {
                     failure(.hostFail)
-                }
-                else if error._code == NSURLErrorCancelled {
+                } else if error._code == NSURLErrorCancelled {
                     failure(.cancel)
-                }
-                else if error._code == NSURLErrorNetworkConnectionLost {
+                } else if error._code == NSURLErrorNetworkConnectionLost {
                     failure(.unknown)
-                }
-                else if error._code == NSURLErrorNotConnectedToInternet {
+                } else if error._code == NSURLErrorNotConnectedToInternet {
                     failure(.noInternet)
-                }
-                else if error._code == NSURLErrorUserCancelledAuthentication {
+                } else if error._code == NSURLErrorUserCancelledAuthentication {
                     failure(.unAuthorised)
-                }
-                else {
+                } else {
                     failure(.unknown)
                 }
             }

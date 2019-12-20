@@ -47,8 +47,7 @@ class GetListByDateInteractor {
     private func getLists(list : [Lists]? = nil) -> [GetLists]? {
         if let list = list {
             return list.compactMap{GetLists(list: $0)}
-        }
-        else {
+        } else {
             return nil
         }
     }

@@ -18,7 +18,6 @@ protocol Routable {
 
 enum Router : Routable {
     case getListByDate(Parameters)
-    
 }
 
 extension Router {

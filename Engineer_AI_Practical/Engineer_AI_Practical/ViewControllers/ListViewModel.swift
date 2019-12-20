@@ -32,14 +32,12 @@ final class ListViewModel : ParentViewModel {
             if let lists = lists {
                 if self.pageNumber == 0 {
                     self.arrayOfLists = lists
-                }
-                else {
+                } else {
                     self.arrayOfLists.append(contentsOf: lists)
                 }
                 self.numberOfPages = pages
                 self._success?()
-            }
-            else {
+            } else {
                 if let error = error {
                     self._failure?(error)
                 }

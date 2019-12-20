@@ -11,10 +11,10 @@ import UIScrollView_InfiniteScroll
 
 final class ListViewController: UIViewController {
 
-    //MARK: IBOutlets
+    // MARK:- IBOutlets
     @IBOutlet private weak var tableView: UITableView!
     
-    //MARK: Variables
+    //MARK:- Variables
     private var viewModel = ListViewModel()
     private let count = 20
     
@@ -30,7 +30,7 @@ final class ListViewController: UIViewController {
         return refreshcontrol
     }()
     
-    //MARK : -LIFECYCLES
+    // MARK:- Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.activePostCounts = 0
@@ -38,20 +38,19 @@ final class ListViewController: UIViewController {
         self.getLists()
     }
     
-    //MARK: -HandlePullToRefresh
+    // MARK:- HandlePullToRefresh
     @objc private func handlePullToRefresh() {
         self.viewModel.pageNumber = 0
         self.activePostCounts = 0
         self.getLists()
     }
     
-    //MARK: -WEBSERVICE
+    // MARK:- Webservice
     private func getLists() {
         self.viewModel.loading {
             if self.viewModel.pageNumber == 0 {
                 self.showProgress()
-            }
-            else {
+            } else {
                 self.tableView.beginInfiniteScroll(true)
             }
         }
@@ -65,22 +64,20 @@ final class ListViewController: UIViewController {
             if self.viewModel.pageNumber == 0 {
                 self.dismissProgress()
                 self.refreshControl.endRefreshing()
-            }
-            else {
+            } else {
                 self.tableView.finishInfiniteScroll()
             }
         }
         if NetworkManager.shared.reachabilityManager?.isReachable ?? false {
             self.viewModel.getListByDate(page: self.viewModel.pageNumber)
-        }
-        else {
+        } else {
             self.showAlertWithError(error: .noInternet)
         }
     }
 
 }
 
-//MARK : - UITableViewDelegate And DataSource
+//MARK:- UITableViewDelegate And DataSource
 extension ListViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.viewModel.arrayOfLists.count
