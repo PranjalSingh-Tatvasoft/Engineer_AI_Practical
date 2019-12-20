@@ -8,7 +8,9 @@
 
 import Foundation
 
-class ListViewModel : ParentViewModel {
+final class ListViewModel : ParentViewModel {
+    
+    //MARK: - Variables
     private let interactor : GetListByDateInteractor!
     var pageNumber = 0
     var isDataLoading = false
@@ -20,6 +22,7 @@ class ListViewModel : ParentViewModel {
         self.interactor = GetListByDateInteractor()
     }
     
+    //MARK : Method for calling webservice
     func getListByDate(page : Int) {
         self.isDataLoading = true
         let parameter = ["tags" : "story",

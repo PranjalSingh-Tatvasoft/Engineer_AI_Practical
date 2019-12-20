@@ -9,7 +9,7 @@
 import UIKit
 import UIScrollView_InfiniteScroll
 
-class ListViewController: UIViewController {
+final class ListViewController: UIViewController {
 
     //MARK: IBOutlets
     @IBOutlet private weak var tableView: UITableView!

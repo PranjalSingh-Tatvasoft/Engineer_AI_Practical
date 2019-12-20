@@ -8,7 +8,8 @@
 
 import Foundation
 
-public class GetLists {
+class GetLists {
+    
     let createdAt : String
     let title : String
     var status : Bool
@@ -22,18 +23,17 @@ public class GetLists {
 }
 
 class GetListByDateInteractor {
+    
     func getListByDate(parameter : [String : Any], completion : @escaping ([GetLists]?, Int?, WebError?) -> Void) {
         APIManager.shared.fetchData(router: .getListByDate(parameter), onSuccess: { (response) in
             if let codableData = response.data as? [[String:Any]] {
                 var arrayOfList : [Lists] = []
                 codableData.forEach{ (lists) in
-                    do
-                    {
+                    do {
                         let jsonData = try JSONSerialization.data(withJSONObject: lists, options: .prettyPrinted)
                         let list = try JSONDecoder().decode(Lists.self, from: jsonData)
                         arrayOfList.append(list)
-                    }
-                    catch {
+                    } catch {
                         print("Something went wrong in codable casting.")
                     }
                 }
