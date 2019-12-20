@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct Lists : Codable {
+    let created_at : String?
+    let title : String?
+}

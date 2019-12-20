@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+extension String {
+    var stringToDate : Date? {
+        return DateFormatter.dateFormatterLong.date(from: self)
+    }
+}

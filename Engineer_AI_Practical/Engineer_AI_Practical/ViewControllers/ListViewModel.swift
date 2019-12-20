@@ -7,3 +7,42 @@
 //
 
 import Foundation
+
+class ListViewModel : ParentViewModel {
+    private let interactor : GetListByDateInteractor!
+    var pageNumber = 0
+    var isDataLoading = false
+    var isMoreData = false
+    var numberOfPages : Int?
+    var arrayOfLists : [GetLists] = []
+    
+    override init() {
+        self.interactor = GetListByDateInteractor()
+    }
+    
+    func getListByDate(page : Int) {
+        self.isDataLoading = true
+        let parameter = ["tags" : "story",
+                         "page" : "\(page)"]
+        self._loading?()
+        self.interactor.getListByDate(parameter: parameter) { (lists, pages, error) in
+            if let lists = lists {
+                if self.pageNumber == 0 {
+                    self.arrayOfLists = lists
+                }
+                else {
+                    self.arrayOfLists.append(contentsOf: lists)
+                }
+                self.numberOfPages = pages
+                self._success?()
+            }
+            else {
+                if let error = error {
+                    self._failure?(error)
+                }
+            }
+            self._finish?()
+            self.isDataLoading = false
+        }
+    }
+}
