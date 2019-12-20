@@ -12,6 +12,10 @@
 		05FBB0EC23ACC649004F1251 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05FBB0EA23ACC649004F1251 /* Main.storyboard */; };
 		05FBB0EE23ACC64D004F1251 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05FBB0ED23ACC64D004F1251 /* Assets.xcassets */; };
 		05FBB0F123ACC64D004F1251 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05FBB0EF23ACC64D004F1251 /* LaunchScreen.storyboard */; };
+		05FBB0FA23ACC77B004F1251 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FBB0F923ACC77B004F1251 /* Router.swift */; };
+		05FBB0FC23ACC8F8004F1251 /* WebError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FBB0FB23ACC8F8004F1251 /* WebError.swift */; };
+		05FBB0FE23ACC9E9004F1251 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FBB0FD23ACC9E9004F1251 /* BaseResponse.swift */; };
+		05FBB10023ACCA82004F1251 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FBB0FF23ACCA82004F1251 /* APIManager.swift */; };
 		C3C2195883393B2AFED75827 /* Pods_Engineer_AI_Practical.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CE1445041E35541D231892B /* Pods_Engineer_AI_Practical.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +27,10 @@
 		05FBB0ED23ACC64D004F1251 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05FBB0F023ACC64D004F1251 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05FBB0F223ACC64D004F1251 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05FBB0F923ACC77B004F1251 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		05FBB0FB23ACC8F8004F1251 /* WebError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebError.swift; sourceTree = "<group>"; };
+		05FBB0FD23ACC9E9004F1251 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
+		05FBB0FF23ACCA82004F1251 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		1FB5706928E93EA246E8ECE7 /* Pods-Engineer_AI_Practical.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Engineer_AI_Practical.debug.xcconfig"; path = "Target Support Files/Pods-Engineer_AI_Practical/Pods-Engineer_AI_Practical.debug.xcconfig"; sourceTree = "<group>"; };
 		2CE1445041E35541D231892B /* Pods_Engineer_AI_Practical.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Engineer_AI_Practical.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		806101C8A5439F27BBEFC3FE /* Pods-Engineer_AI_Practical.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Engineer_AI_Practical.release.xcconfig"; path = "Target Support Files/Pods-Engineer_AI_Practical/Pods-Engineer_AI_Practical.release.xcconfig"; sourceTree = "<group>"; };
@@ -61,6 +69,7 @@
 		05FBB0E523ACC649004F1251 /* Engineer_AI_Practical */ = {
 			isa = PBXGroup;
 			children = (
+				05FBB0F823ACC76D004F1251 /* Network Layer */,
 				05FBB0E623ACC649004F1251 /* AppDelegate.swift */,
 				05FBB0E823ACC649004F1251 /* ViewController.swift */,
 				05FBB0EA23ACC649004F1251 /* Main.storyboard */,
@@ -69,6 +78,17 @@
 				05FBB0F223ACC64D004F1251 /* Info.plist */,
 			);
 			path = Engineer_AI_Practical;
+			sourceTree = "<group>";
+		};
+		05FBB0F823ACC76D004F1251 /* Network Layer */ = {
+			isa = PBXGroup;
+			children = (
+				05FBB0F923ACC77B004F1251 /* Router.swift */,
+				05FBB0FB23ACC8F8004F1251 /* WebError.swift */,
+				05FBB0FD23ACC9E9004F1251 /* BaseResponse.swift */,
+				05FBB0FF23ACCA82004F1251 /* APIManager.swift */,
+			);
+			path = "Network Layer";
 			sourceTree = "<group>";
 		};
 		3E304F5BCF7ECF9F283587C1 /* Pods */ = {
@@ -203,7 +223,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05FBB10023ACCA82004F1251 /* APIManager.swift in Sources */,
+				05FBB0FE23ACC9E9004F1251 /* BaseResponse.swift in Sources */,
 				05FBB0E923ACC649004F1251 /* ViewController.swift in Sources */,
+				05FBB0FC23ACC8F8004F1251 /* WebError.swift in Sources */,
+				05FBB0FA23ACC77B004F1251 /* Router.swift in Sources */,
 				05FBB0E723ACC649004F1251 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
